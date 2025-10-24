@@ -1,4 +1,4 @@
-version: '3.8'
+
 services:
   postgres:
     image: postgres:13
@@ -21,8 +21,7 @@ services:
         condition: service_healthy
     environment:
       DATABASE_URL: postgresql://postgres:P@ssword@postgres:5432/postgres
-      PORT: 3000
     volumes:
-      - .:/usr/src/app
+      - .:/app
 
 
