@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:latest
 
 WORKDIR /usr/src/app
 
@@ -7,8 +7,6 @@ RUN npm install
 
 COPY . .
 
-RUN npx prisma generate
-
 EXPOSE 3000
 
-CMD ["sh", "-c", "npx prisma migrate deploy && npm run prisma:seed && npm run dev"]
+CMD ["sh", "-c", "npx prisma generate && npx prisma migrate deploy && npm run prisma:seed && npm run dev"]
